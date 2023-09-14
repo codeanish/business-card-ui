@@ -3,7 +3,7 @@ import DarkModeToggle from './DarkModeToggle'
 
 const CardHeading = () => {
   return (
-    <div className="border-b border-gray-200 bg-white dark:bg-gray-800 px-4 py-5 sm:px-6">
+    <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:px-6 rounded-t-lg">
       <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
         <div className="ml-4 mt-4">
           <div className="flex items-center">
