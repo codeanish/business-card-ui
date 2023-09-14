@@ -1,7 +1,7 @@
 import { CursorArrowRaysIcon, EnvelopeOpenIcon, UsersIcon } from '@heroicons/react/24/outline'
 
 const stats = [
-  { id: 1, name: 'Github contributions', stat: '200', icon: UsersIcon, url: 'https://github.com/codeanish'  },
+  { id: 1, name: 'Github contributions (past year)', stat: '200', icon: UsersIcon, url: 'https://github.com/codeanish'  },
   { id: 2, name: 'Leetcode Rank', stat: '2,053,880', icon: EnvelopeOpenIcon, url: 'https://leetcode.com/codeanish/', },
   { id: 3, name: 'Twitter followers', stat: '97', icon: CursorArrowRaysIcon, url: 'https://twitter.com/codeanish',  },
 ]

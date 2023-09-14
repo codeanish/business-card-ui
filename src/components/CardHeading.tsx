@@ -37,9 +37,6 @@ const CardHeading = () => {
             <EnvelopeIcon className="-ml-0.5 mr-1.5 h-5 w-5 text-white" aria-hidden="true" />
             <span>Email</span>
         </button>
-          <div className="relative ml-3 inline-flex items-center">
-            <DarkModeToggle/>
-          </div>
         </div>
       </div>
     </div>

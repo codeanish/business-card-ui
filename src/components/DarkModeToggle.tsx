@@ -2,8 +2,6 @@
 
 import { useEffect, useState } from 'react'
 import { Switch } from '@headlessui/react'
-// import useDarkSide from '../hooks/useDarkSide';
-
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
 }
@@ -14,8 +12,6 @@ const DarkModeToggle = () => {
   const colorTheme = theme === "dark" ? "light" : "dark";
 
   useEffect(() => {
-    console.log("useEffect")
-    console.log(colorTheme)
       const root = window.document.documentElement;
       root.classList.remove(colorTheme);
       root.classList.add(theme);
