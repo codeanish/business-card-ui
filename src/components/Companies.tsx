@@ -1,3 +1,4 @@
+import GoldmanSachsIcon from '../company-logos/GoldmanSachs';
 import Divider from './Divider';
 
 const Companies = () => {
@@ -34,12 +35,18 @@ const Companies = () => {
             height={48}
           />
           <img
-            className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1"
+            className="col-span-2 col-start-2 max-h-12 w-full object-contain sm:col-start-auto lg:col-span-1 text-gray-900"
             src="https://tailwindui.com/img/logos/158x48/statamic-logo-gray-900.svg"
             alt="Statamic"
             width={158}
             height={48}
-          />
+          /> 
+          {/* <div className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1">
+            <GoldmanSachsIcon width={48} height={48} color='#111827'/>
+          </div>
+          <div className="col-span-2 max-h-12 w-full object-contain sm:col-start-2 lg:col-span-1">
+            <GoldmanSachsIcon width={48} height={48} color='#111827'/>
+          </div> */}
         </div>
         </div>
     )

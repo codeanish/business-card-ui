@@ -2,10 +2,31 @@ import Divider from './Divider';
 import { AmazonwebservicesOriginal, AnsibleOriginal, AppleOriginal, CplusplusOriginal, GoOriginal, LinuxOriginal, MicrosoftsqlserverPlain, MongodbOriginal, PackerOriginal, PythonOriginal, ReactOriginal, TailwindcssOriginalWordmark, TailwindcssPlain, TerraformOriginal, Windows8Original } from 'devicons-react';
 
 const tools = [
-    { id: 1, name: 'Programming Languages' },
-    { id: 2, name: 'Data Storage' },
-    { id: 3, name: 'Infrastructure/OS' }
+    { id: 1, name: 'Programming Languages', values: ['Python', 'C++', 'Go'] },
+    { id: 2, name: 'Data Storage', values: ['SQLServer', 'MongoDb'] },
+    { id: 3, name: 'Infrastructure/OS', values: ['AWS', 'Terraform', 'Ansible', 'Packer', 'Linux', 'Windows', 'MacOS'] },
 ]
+
+const toolIconMap = new Map<string, JSX.Element> ([
+  ['Python', <PythonOriginal size={32}/>],
+  ['C++', <CplusplusOriginal size={32}/>],
+  ['Go', <GoOriginal size={32}/>],
+  ['SQLServer', <MicrosoftsqlserverPlain size={32}/>],
+  ['MongoDb', <MongodbOriginal size={32}/>],
+  ['AWS', <AmazonwebservicesOriginal size={32}/>],
+  ['Terraform', <TerraformOriginal size={32}/>],
+  ['Ansible', <AnsibleOriginal size={32}/>],
+  ['Packer', <PackerOriginal size={32}/>],
+  ['Linux', <LinuxOriginal size={32}/>],
+  ['Windows', <Windows8Original size={32}/>],
+  ['MacOS', <AppleOriginal size={32}/>],
+  ['React', <ReactOriginal size={32}/>],
+  ['Tailwind', <TailwindcssPlain size={32}/>]
+])
+
+const getIcons = (values: Array<string>) => {
+  return values.map((value) => toolIconMap.get(value));
+}
 
 const Tools = () => {
 
@@ -22,20 +43,7 @@ const Tools = () => {
             <dt>
               <p className=" truncate text-sm font-medium text-gray-500 dark:text-gray-400">{item.name}</p>
                 <div className='flex flex-wrap gap-2 pt-3'>
-                    <PythonOriginal size={32}/>
-                    <CplusplusOriginal size={32}/>
-                    <TerraformOriginal size={32}/>
-                    <AmazonwebservicesOriginal size={32}/>
-                    <GoOriginal size={32}/>
-                    <LinuxOriginal size={32}/>
-                    <PackerOriginal size={32}/>
-                    <AnsibleOriginal size={32}/>
-                    <Windows8Original size={32}/>
-                    <AppleOriginal size={32}/>
-                    <ReactOriginal size={32}/>
-                    <TailwindcssPlain size={32}/>
-                    <MicrosoftsqlserverPlain size={32}/>
-                    <MongodbOriginal size={32}/>
+                    {getIcons(item.values)}
                 </div>
             </dt>
             </div>
