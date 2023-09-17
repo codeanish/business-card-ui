@@ -1,7 +1,7 @@
 import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/20/solid'
-import DarkModeToggle from './DarkModeToggle'
+import User from '../types/User'
 
-const CardHeading = () => {
+const CardHeading = ({user}:{user:User}) => {
   return (
     <div className="bg-gray-50 dark:bg-gray-700 px-4 py-5 sm:px-6 rounded-t-lg">
       <div className="-ml-4 -mt-4 flex flex-wrap items-center justify-between sm:flex-nowrap">
@@ -15,9 +15,9 @@ const CardHeading = () => {
               />
             </div>
             <div className="ml-4">
-              <h3 className="text-base font-semibold leading-6 text-gray-900 dark:text-white">Anish Patel</h3>
+              <h3 className="text-base font-semibold leading-6 text-gray-900 dark:text-white">{user.Name}</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">
-                <a href="#">@codeanish</a>
+                <a href="#">{user.Username}</a>
               </p>
             </div>
           </div>
