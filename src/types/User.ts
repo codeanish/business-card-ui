@@ -5,6 +5,8 @@ type User = {
     LeetcodeUrl: string;
     Name: string;
     ProgrammingLanguages: string[];
+    DataStorage: string[];
+    Infrastructure: string[];
 }
 
 export default User;

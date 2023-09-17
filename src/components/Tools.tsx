@@ -55,7 +55,7 @@ const Tools = ({user}:{user:User}) => {
                 <dt>
                   <p className=" truncate text-sm font-medium text-gray-500 dark:text-gray-400">Data Storage</p>
                     <div className='flex flex-wrap gap-2 pt-3'>
-                        {getIcons(user.ProgrammingLanguages)}
+                        {getIcons(user.DataStorage)}
                     </div>
                 </dt>
               </div>
@@ -65,7 +65,7 @@ const Tools = ({user}:{user:User}) => {
                 <dt>
                   <p className=" truncate text-sm font-medium text-gray-500 dark:text-gray-400">Infrastructure/OS</p>
                     <div className='flex flex-wrap gap-2 pt-3'>
-                        {getIcons(user.ProgrammingLanguages)}
+                        {getIcons(user.Infrastructure)}
                     </div>
                 </dt>
               </div>
