@@ -8,6 +8,7 @@ import getUser from '../services/UserService';
 import { useParams } from 'react-router-dom';
 import User from '../types/User';
 import UserService from '../services/UserService';
+import LeetcodeService from '../services/LeetcodeService';
 
 const Card = () => {
     const [user, setUser] = React.useState<User>({
@@ -16,7 +17,9 @@ const Card = () => {
         Email: '',
         ProgrammingLanguages: [],
         GithubUrl: '',
-        LeetcodeUrl: ''
+        LeetcodeUrl: '',
+        DataStorage: [],
+        Infrastructure: []
     });
     
     type CardParams = {
@@ -27,6 +30,7 @@ const Card = () => {
 
     useEffect(() => {
         fetchUser();
+        getLeetcodeRanking();
     },[]);
 
     const fetchUser = () => {
@@ -38,10 +42,17 @@ const Card = () => {
         }
     }
 
+    const getLeetcodeRanking = () => {
+        LeetcodeService.getUserRanking("codeanish")
+        .then((ranking) => {
+            console.log(ranking);
+        })
+    }
+
     return (
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 sm:py-6 lg:py-8">
             <CardHeading user={user}/>
-            <Stats/>
+            <Stats user={user}/>
             <Tools user={user}/>
             <Companies/>
             <SocialLinks/>
