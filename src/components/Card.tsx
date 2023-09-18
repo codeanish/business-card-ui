@@ -19,7 +19,8 @@ const Card = () => {
         GithubUrl: '',
         LeetcodeUrl: '',
         DataStorage: [],
-        Infrastructure: []
+        Infrastructure: [],
+        LeetcodeRanking: 0,
     });
     
     type CardParams = {
@@ -30,23 +31,21 @@ const Card = () => {
 
     useEffect(() => {
         fetchUser();
-        getLeetcodeRanking();
+        // getLeetcodeRanking(user);
     },[]);
 
     const fetchUser = () => {
         if(username){
             UserService.getUser(username)
             .then((user) => {
-                setUser(user)
-            });
+                LeetcodeService.getStats("codeanish")
+                .then((leetcodeStats) => {
+                    user.LeetcodeRanking = leetcodeStats.ranking;
+                    setUser(user);
+                
+                })
+            })
         }
-    }
-
-    const getLeetcodeRanking = () => {
-        LeetcodeService.getUserRanking("codeanish")
-        .then((ranking) => {
-            console.log(ranking);
-        })
     }
 
     return (

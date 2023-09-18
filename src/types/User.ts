@@ -7,6 +7,7 @@ type User = {
     ProgrammingLanguages: string[];
     DataStorage: string[];
     Infrastructure: string[];
+    LeetcodeRanking: number;
 }
 
 export default User;

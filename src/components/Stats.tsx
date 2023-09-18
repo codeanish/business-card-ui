@@ -42,7 +42,7 @@ const Stats = ({user}:{user:User}) => {
               <p className="ml-16 truncate text-sm font-medium text-gray-500 dark:text-gray-400">Leetcode Ranking</p>
             </dt>
             <dd className="ml-16 flex items-baseline pb-6 sm:pb-7">
-              <p className="text-2xl font-semibold text-gray-900 dark:text-white">2,053,880</p>
+              <p className="text-2xl font-semibold text-gray-900 dark:text-white">{user.LeetcodeRanking}</p>
               <div className="absolute inset-x-0 bottom-0 bg-gray-50 dark:bg-gray-800 px-4 py-4 sm:px-6">
                 <div className="text-sm">
                   <a href={user.LeetcodeUrl} className="font-medium text-indigo-600 hover:text-indigo-500 dark:text-indigo-400 dark:hover:text-indigo-300">
