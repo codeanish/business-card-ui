@@ -4,7 +4,6 @@ import SocialLinks from './SocialLinks';
 import Stats from './Stats';
 import Tools from './Tools';
 import Companies from './Companies';
-import getUser from '../services/UserService';
 import { useParams } from 'react-router-dom';
 import User from '../types/User';
 import UserService from '../services/UserService';
@@ -31,7 +30,6 @@ const Card = () => {
 
     useEffect(() => {
         fetchUser();
-        // getLeetcodeRanking(user);
     },[]);
 
     const fetchUser = () => {
@@ -60,8 +58,3 @@ const Card = () => {
 }
 
 export default Card;
-
-// export default function Example() {
-//     return <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">{/* Content goes here */}</div>
-//   }
-  

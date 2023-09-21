@@ -1,15 +1,9 @@
 import User from '../types/User';
 import Divider from './Divider';
-import { AmazonwebservicesOriginal, AnsibleOriginal, AppleOriginal, CplusplusOriginal, CsharpOriginal, GoOriginal, JavascriptOriginal, LinuxOriginal, MicrosoftsqlserverPlain, MongodbOriginal, PackerOriginal, PythonOriginal, PythonPlain, ReactOriginal, TailwindcssOriginalWordmark, TailwindcssPlain, TerraformOriginal, TypescriptOriginal, Windows8Original } from 'devicons-react';
-
-const tools = [
-    { id: 1, name: 'Programming Languages', values: ['Python', 'C++', 'Go'] },
-    { id: 2, name: 'Data Storage', values: ['SQLServer', 'MongoDb'] },
-    { id: 3, name: 'Infrastructure/OS', values: ['AWS', 'Terraform', 'Ansible', 'Packer', 'Linux', 'Windows', 'MacOS'] },
-]
+import { AmazonwebservicesOriginal, AnsibleOriginal, AppleOriginal, CplusplusOriginal, CsharpOriginal, GoOriginal, JavascriptOriginal, LinuxOriginal, MicrosoftsqlserverPlain, MongodbOriginal, PackerOriginal, PythonOriginal, PythonPlain, ReactOriginal, TailwindcssPlain, TerraformOriginal, TypescriptOriginal, Windows8Original } from 'devicons-react';
 
 const toolIconMap = new Map<string, JSX.Element> ([
-  ['Python', <PythonPlain key="1" size={32}/>],
+  ['Python', <PythonOriginal key="1" size={32}/>],
   ['C++', <CplusplusOriginal key="2" size={32}/>],
   ['Go', <GoOriginal key="3" size={32}/>],
   ['SQLServer', <MicrosoftsqlserverPlain key="4" size={32}/>],
