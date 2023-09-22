@@ -4,7 +4,7 @@ import SocialLinks from './SocialLinks';
 import Stats from './Stats';
 import Tools from './Tools';
 import Companies from './Companies';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import User from '../types/User';
 import UserService from '../services/UserService';
 import LeetcodeService from '../services/LeetcodeService';
@@ -26,7 +26,7 @@ const Card = () => {
         username: string;
     }
     const { username } = useParams<CardParams>();
-
+    const navigate = useNavigate();
 
     useEffect(() => {
         fetchUser();
@@ -40,9 +40,12 @@ const Card = () => {
                 .then((leetcodeStats) => {
                     user.LeetcodeRanking = leetcodeStats.ranking;
                     setUser(user);
-                
                 })
+                
             })
+            .catch(() => {
+                navigate('/404');
+            });
         }
     }
 
