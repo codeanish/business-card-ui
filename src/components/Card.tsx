@@ -8,6 +8,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import User from '../types/User';
 import UserService from '../services/UserService';
 import LeetcodeService from '../services/LeetcodeService';
+import GithubService from '../services/GithubService';
 
 const Card = () => {
     const [user, setUser] = React.useState<User>({
@@ -20,6 +21,7 @@ const Card = () => {
         DataStorage: [],
         Infrastructure: [],
         LeetcodeRanking: 0,
+        GithubTotalCommits: 0
     });
     
     type CardParams = {
@@ -41,7 +43,11 @@ const Card = () => {
                     user.LeetcodeRanking = leetcodeStats.ranking;
                     setUser(user);
                 })
-                
+                GithubService.getTotalCommits("codeanish")
+                .then((githubCommits) => {
+                    user.GithubTotalCommits = githubCommits.total_commits;
+                    setUser(user);
+                })                
             })
             .catch(() => {
                 navigate('/404');

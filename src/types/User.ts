@@ -8,6 +8,7 @@ type User = {
     DataStorage: string[];
     Infrastructure: string[];
     LeetcodeRanking: number;
+    GithubTotalCommits: number;
 }
 
 export default User;
