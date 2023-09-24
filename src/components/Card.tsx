@@ -9,7 +9,6 @@ import User from '../types/User';
 import UserService from '../services/UserService';
 import LeetcodeService from '../services/LeetcodeService';
 import GithubService from '../services/GithubService';
-import TwitterService from '../services/StackOverflowService';
 import StackOverflowService from '../services/StackOverflowService';
 
 const Card = () => {
@@ -42,21 +41,12 @@ const Card = () => {
         if(username){
             UserService.getUser(username)
             .then((user) => {
-                LeetcodeService.getStats("codeanish")
-                .then((leetcodeStats) => {
-                    user.LeetcodeRanking = leetcodeStats.ranking;
-                    setUser(user);
+                const leetcode = LeetcodeService.getStats("codeanish")
+                const github = GithubService.getTotalCommits("codeanish")
+                const stackOverflow = StackOverflowService.getReputation("codeanish", 208831)
+                Promise.all([leetcode, github, stackOverflow]).then((values) => {
+                    setUser({...user, LeetcodeRanking: values[0].ranking, GithubTotalCommits: values[1].total_commits, StackOverflowReputation: values[2].reputation});
                 })
-                GithubService.getTotalCommits("codeanish")
-                .then((githubCommits) => {
-                    user.GithubTotalCommits = githubCommits.total_commits;
-                    setUser(user);
-                })
-                StackOverflowService.getReputation("codeanish", 208831)
-                .then((stackoverflowStats) => {
-                    user.StackOverflowReputation = stackoverflowStats.reputation;
-                    setUser(user);
-                })               
             })
             .catch(() => {
                 navigate('/404');
