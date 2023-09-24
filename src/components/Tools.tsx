@@ -1,6 +1,6 @@
 import User from '../types/User';
 import Divider from './Divider';
-import { AmazonwebservicesOriginal, AnsibleOriginal, AppleOriginal, CplusplusOriginal, CsharpOriginal, GoOriginal, JavascriptOriginal, LinuxOriginal, MicrosoftsqlserverPlain, MongodbOriginal, PackerOriginal, PythonOriginal, PythonPlain, ReactOriginal, TailwindcssPlain, TerraformOriginal, TypescriptOriginal, Windows8Original } from 'devicons-react';
+import { AmazonwebservicesOriginal, AnsibleOriginal, AppleOriginal, CplusplusOriginal, CsharpOriginal, GoOriginal, JavascriptOriginal, LinuxOriginal, MicrosoftsqlserverPlain, MongodbOriginal, PackerOriginal, PythonPlain, ReactOriginal, TailwindcssPlain, TerraformOriginal, TypescriptOriginal, Windows8Original } from 'devicons-react';
 
 const toolIconMap = new Map<string, JSX.Element> ([
   ['Python', <PythonPlain key="1" size={32}/>],
