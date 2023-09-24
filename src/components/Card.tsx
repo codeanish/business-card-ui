@@ -9,6 +9,8 @@ import User from '../types/User';
 import UserService from '../services/UserService';
 import LeetcodeService from '../services/LeetcodeService';
 import GithubService from '../services/GithubService';
+import TwitterService from '../services/StackOverflowService';
+import StackOverflowService from '../services/StackOverflowService';
 
 const Card = () => {
     const [user, setUser] = React.useState<User>({
@@ -21,7 +23,9 @@ const Card = () => {
         DataStorage: [],
         Infrastructure: [],
         LeetcodeRanking: 0,
-        GithubTotalCommits: 0
+        GithubTotalCommits: 0,
+        StackOverflowUrl: '',
+        StackOverflowReputation: 0,
     });
     
     type CardParams = {
@@ -47,7 +51,12 @@ const Card = () => {
                 .then((githubCommits) => {
                     user.GithubTotalCommits = githubCommits.total_commits;
                     setUser(user);
-                })                
+                })
+                StackOverflowService.getReputation("codeanish", 208831)
+                .then((stackoverflowStats) => {
+                    user.StackOverflowReputation = stackoverflowStats.reputation;
+                    setUser(user);
+                })               
             })
             .catch(() => {
                 navigate('/404');

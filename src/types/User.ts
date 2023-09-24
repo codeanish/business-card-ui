@@ -9,6 +9,8 @@ type User = {
     Infrastructure: string[];
     LeetcodeRanking: number;
     GithubTotalCommits: number;
+    StackOverflowUrl: string;
+    StackOverflowReputation: number;
 }
 
 export default User;
