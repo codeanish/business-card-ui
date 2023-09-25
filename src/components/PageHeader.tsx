@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, MoonIcon, SunIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Product', href: '#' },
@@ -51,9 +52,12 @@ export default function PageHeader() {
                 onClick={toggleDarkMode}>
                     {theme === "dark" ? <MoonIcon className="h-6 w-6 text-gray-200" aria-hidden="true" /> : <SunIcon className="h-6 w-6 text-gray-800" aria-hidden="true" />}
             </div>
-          <a href="#" className="text-sm pl-6 font-semibold leading-6 text-gray-800 dark:text-gray-200">
+            <Link to="/signin" className="text-sm pl-6 font-semibold leading-6 text-gray-800 dark:text-gray-200">
+                  Log In <span aria-hidden="true">&rarr;</span>
+              </Link>
+          {/* <a href="#" className="text-sm pl-6 font-semibold leading-6 text-gray-800 dark:text-gray-200">
             Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          </a> */}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -91,12 +95,10 @@ export default function PageHeader() {
                 ))}
               </div>
               <div className="py-6">
-                <a
-                  href="#"
-                  className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
-                >
-                  Log in
-                </a>
+                {/* Link to sign in page */}
+                <Link to={"/signin"} className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">
+                  Log In
+                </Link>
               </div>
             </div>
           </div>

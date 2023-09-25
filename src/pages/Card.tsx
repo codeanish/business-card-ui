@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
-import CardHeading from './CardHeading';
-import SocialLinks from './SocialLinks';
-import Stats from './Stats';
-import Tools from './Tools';
-import Companies from './Companies';
+import CardHeading from '../components/CardHeading';
+import SocialLinks from '../components/SocialLinks';
+import Stats from '../components/Stats';
+import Tools from '../components/Tools';
+import Companies from '../components/Companies';
 import { useNavigate, useParams } from 'react-router-dom';
 import User from '../types/User';
 import UserService from '../services/UserService';
 import LeetcodeService from '../services/LeetcodeService';
 import GithubService from '../services/GithubService';
 import StackOverflowService from '../services/StackOverflowService';
+import PageHeader from '../components/PageHeader';
 
 const Card = () => {
     const [user, setUser] = React.useState<User>({
@@ -55,6 +56,8 @@ const Card = () => {
     }
 
     return (
+        <>
+        <PageHeader/>
         <div className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:px-8 sm:py-6 lg:py-8">
             <CardHeading user={user}/>
             <Stats user={user}/>
@@ -62,6 +65,7 @@ const Card = () => {
             <Companies/>
             <SocialLinks/>
         </div>
+        </>
     )
 }
 
