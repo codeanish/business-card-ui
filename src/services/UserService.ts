@@ -2,7 +2,7 @@ import axios from 'axios';
 import User from '../types/User';
 
 const getUser = (username: string): Promise<User> =>  {
-    let response = axios.get(`http://localhost:8080/${username}`)
+    let response = axios.get(`http://localhost:8080/users/${username}`)
     .then(response => {
         return response.data as User;
     })

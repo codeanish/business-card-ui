@@ -2,7 +2,7 @@ import axios from 'axios';
 import LeetcodeStats from '../types/LeetcodeStats';
 
 const getStats = (username: string): Promise<LeetcodeStats> =>  {
-    let response = axios.get(`http://localhost:8080/${username}/leetcode`)
+    let response = axios.get(`http://localhost:8080/users/${username}/leetcode`)
     .then(response => {
         return response.data as LeetcodeStats;
     })
