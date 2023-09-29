@@ -32,10 +32,10 @@ export default function PageHeader() {
     <header className="bg-gray-50 dark:bg-gray-800">
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
-          <a href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
+          <Link to="/" className="-m-1.5 p-1.5">
+          <span className="sr-only">Your Company</span>
             {theme === "dark" ? <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=300" alt="" /> : <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="" />}
-          </a>
+          </Link>
         </div>
         <div className="flex lg:hidden">
           <button
@@ -55,9 +55,6 @@ export default function PageHeader() {
             <Link to="/signin" className="text-sm pl-6 font-semibold leading-6 text-gray-800 dark:text-gray-200">
                   Log In <span aria-hidden="true">&rarr;</span>
               </Link>
-          {/* <a href="#" className="text-sm pl-6 font-semibold leading-6 text-gray-800 dark:text-gray-200">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a> */}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
