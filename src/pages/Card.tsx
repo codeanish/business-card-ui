@@ -42,14 +42,28 @@ const Card = () => {
         if(username){
             UserService.getUser(username)
             .then((user) => {
-                const leetcode = LeetcodeService.getStats("codeanish")
+                const leetcodeUser = user.LeetcodeUrl.split("/").pop();
+                if (!leetcodeUser) {
+                    throw new Error("Leetcode username not found");
+                }
+                const leetcode = LeetcodeService.getStats(leetcodeUser)
+                const githubUser = user.GithubUrl.split("/").pop();
+                if (!githubUser) {
+                    throw new Error("Github username not found");
+                }
                 const github = GithubService.getTotalCommits("codeanish")
-                const stackOverflow = StackOverflowService.getReputation("codeanish", 208831)
+                const stackOverflowSplitUrl = user.StackOverflowUrl.split("/");
+                const stackOverflowId = stackOverflowSplitUrl[stackOverflowSplitUrl.length - 2]
+                if (!stackOverflowId) {
+                    throw new Error("Stackoverflow ID not found");
+                }
+                const stackOverflow = StackOverflowService.getReputation(user.Username, parseInt(stackOverflowId))
                 Promise.all([leetcode, github, stackOverflow]).then((values) => {
                     setUser({...user, LeetcodeRanking: values[0].ranking, GithubTotalCommits: values[1].total_commits, StackOverflowReputation: values[2].reputation});
                 })
             })
-            .catch(() => {
+            .catch((err) => {
+                console.log(err)
                 navigate('/404');
             });
         }
